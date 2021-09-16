@@ -6,10 +6,7 @@
   </head>
   <body>
     <?php
-      $serwer = "localhost";
-      $user = "root";
-      $password ="";
-      $baza = "wprowadzeniephp";
+      require_once 'lacze.php'; //dane do logowania przeniesione do innego pliku
 
       $mysqli = new mysqli($serwer, $user, $password, $baza);
 
