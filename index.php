@@ -6,8 +6,14 @@
   </head>
   <body>
     <?php
-      
-      require_once 'lacze.php'; //dane do logowania przeniesione do innego pliku
+
+    $serwer = "localhost";
+    $user = "root";
+    $password ="";
+    $baza = "wprowadzeniephp";
+
+    //dane te można przenieść do oddzielnego pliku
+    //require_once 'lacze.php'; //dane do logowania przeniesione do innego pliku
 
       $mysqli = new mysqli($serwer, $user, $password, $baza);
 
