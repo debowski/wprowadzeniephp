@@ -20,7 +20,7 @@
     if ( $delta > 0 ){
       echo 'x1: '.$x1 = (-$b - sqrt($delta))/(2*$a).'<br>';
       echo 'x2: '.$x2 = (-$b + sqrt($delta))/(2*$a).'<br>';
-    }a
+    }
     else if ( $delta === 0 ) {
       echo "x1=x2: ". $x1 = (-$b)/(2*$a)."<br>";
     }

@@ -15,8 +15,14 @@
     //dane te można przenieść do oddzielnego pliku
     //require_once 'lacze.php'; //dane do logowania przeniesione do innego pliku
 
+      //obiektowo
       $mysqli = new mysqli($serwer, $user, $password, $baza);
-
+      
+      //lub proceduralnie 
+      //$mysqli = mysqli_connect($serwer, $user, $password, $baza);
+      
+      
+      
       //sprawdzenie połączenia:
       if ($mysqli -> connect_errno) {
         echo "Nie udało się połączyć z MySQL: ".$mysqli->connect_error;
