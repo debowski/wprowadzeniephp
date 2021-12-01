@@ -26,10 +26,12 @@
         //echo "Wszystko działa";
 
         // kwarenda - tworzymy zapytanie
-        $zapytanie = "SELECT marka, model, rocznik FROM samochody";
-        
+        $zapytanie = "SELECT marka, model, rocznik FROM samochody;";
+        $zapytanie2 = "SELECT imie, nazwisko, wiek FROM uczniowie;";
+
         // do zmiennej wynik przypisuję to co zwraca zapytanie
         $wynik = mysqli_query($polaczenie, $zapytanie);
+        $wynik2 = mysqli_query($polaczenie, $zapytanie2);
 
         if (mysqli_num_rows($wynik)>0){  // wypisz tylko jeśli istnieją jakies dane
 
@@ -38,6 +40,17 @@
             }
 
         }
+
+        echo "<br><br><br><br>";
+
+        //metoda fetch_assoc
+        if (mysqli_num_rows($wynik2)>0){  // wypisz tylko jeśli istnieją jakies dane
+
+            while ($wiersz = mysqli_fetch_assoc($wynik2)){
+                echo "Imię: ".$wiersz["imie"]."\t"."Nazwisko: ".$wiersz["nazwisko"]."\t"."wiek: ".$wiersz["wiek"]."<br>";
+            }
+
+        } else echo "brak wyników"; 
 
 
         //zamknięcie połącznie
