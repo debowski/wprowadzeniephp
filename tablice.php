@@ -6,6 +6,8 @@
 $carBrands = ['Toyota', 'Ford', 'BMW', 'Mercedes', 'Audi', 'Volkswagen', 'Honda', 'Hyundai', 'Nissan', 'Chevrolet'];
 print_r($carBrands);
 
+
+
 // tablica asocjacyjna w PHP
 $people = [
     ['imie' => 'Jan', 'nazwisko' => 'Kowalski', 'email' => 'jan.kowalski@example.com'],
@@ -47,13 +49,16 @@ echo '<br>';
 
 
 // Zwraca wynik jako string
+asort($people);
 $wynik = print_r($people, true);
+
 
 // Wyświetla sformatowany wynik
 echo "<pre>$wynik</pre>";
 
 
 //pętla wypisująca każdy element tablicy jako element listy ol
+/*
 echo '<ol>';
 
 foreach ($people as $ludz) {
@@ -61,5 +66,5 @@ foreach ($people as $ludz) {
 }
 
 echo '</ol>';
-
+*/
 ?>
