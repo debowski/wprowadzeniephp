@@ -124,3 +124,75 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 - Formularze są kluczowym elementem interakcji między użytkownikiem a serwerem w aplikacjach webowych.
 - Dane przesyłane z formularzy muszą być walidowane i odpowiednio przetwarzane po stronie serwera, aby zapewnić bezpieczeństwo i poprawność działania aplikacji.
+
+#### **9. Zabezpieczenie skryptu przed automatycznym uruchomieniem po przeładowaniu strony**
+
+Aby zabezpieczyć skrypt PHP w tym samym pliku co formularz HTML i upewnić się, że zostanie on wykonany dopiero po wciśnięciu przycisku **submit** oraz przesłaniu formularza, można skorzystać z warunku sprawdzającego, czy formularz został przesłany metodą POST (lub GET). W takim przypadku wykorzystujemy `$_SERVER['REQUEST_METHOD']` lub sprawdzamy, czy pole formularza (np. `$_POST['submit']`) zostało ustawione.
+
+### Przykład:
+1. **Sprawdzenie metody przesyłania formularza:**
+   Można użyć `$_SERVER['REQUEST_METHOD']`, aby sprawdzić, czy formularz został przesłany metodą POST.
+
+```php
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Skrypt wykona się dopiero po przesłaniu formularza
+    $name = $_POST['name'];
+    echo "Imię: " . htmlspecialchars($name);  // Wyświetlanie imienia po wciśnięciu submit
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz</title>
+</head>
+<body>
+
+<form method="POST" action="">
+    <label for="name">Imię:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Wyślij</button>
+</form>
+
+</body>
+</html>
+```
+
+2. **Sprawdzenie konkretnego pola formularza (np. `$_POST['submit']`):**
+   Można również sprawdzić, czy zmienna z przycisku submit istnieje, co oznacza, że formularz został przesłany.
+
+```php
+<?php
+if (isset($_POST['submit'])) {
+    // Skrypt wykona się dopiero po przesłaniu formularza
+    $name = $_POST['name'];
+    echo "Imię: " . htmlspecialchars($name);  // Wyświetlanie imienia po wciśnięciu submit
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz</title>
+</head>
+<body>
+
+<form method="POST" action="">
+    <label for="name">Imię:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit" name="submit">Wyślij</button>
+</form>
+
+</body>
+</html>
+```
+
+### Dlaczego warto to zrobić?
+1. **Bezpieczeństwo**: Skrypt nie wykona się automatycznie po załadowaniu strony, co mogłoby spowodować nieoczekiwane działanie.
+2. **Czytelność**: Zabezpieczamy, że dane zostaną przetworzone dopiero, gdy formularz faktycznie zostanie przesłany.
+
+### Dodatkowo:
+- **`htmlspecialchars()`** użyte w przykładzie pomaga zabezpieczyć wyświetlane dane przed atakami typu XSS (Cross-Site Scripting).
