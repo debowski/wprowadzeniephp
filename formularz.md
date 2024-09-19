@@ -124,5 +124,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 - Formularze są kluczowym elementem interakcji między użytkownikiem a serwerem w aplikacjach webowych.
 - Dane przesyłane z formularzy muszą być walidowane i odpowiednio przetwarzane po stronie serwera, aby zapewnić bezpieczeństwo i poprawność działania aplikacji.
-
-To skrypt do praktycznej lekcji, obejmujący tworzenie formularzy HTML, ich wysyłanie i odbieranie danych przy użyciu PHP, z uwzględnieniem podstawowych zabezpieczeń.
