@@ -55,19 +55,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<h2>Błąd zapisu danych!</h2>";
     }
 
-
+    
+    
+    
     // 5. WYŚWIETLENIE POBRANYCH DANYCH
-
+    
     echo "Imię: " . htmlspecialchars($imie) . "<br>";
     echo "Nazwisko: " . htmlspecialchars($nazwisko) . "<br>";
     echo "Wiek: " . htmlspecialchars($wiek) . "<br>";
     echo "Płeć: " . htmlspecialchars($plec) . "<br>";
     echo "Miasto: " . htmlspecialchars($miasto) . "<br>";
     echo "Zainteresowania: " . htmlspecialchars($zainteresowania) . "<br>";
-
-}
-
-
+    
+    if ($wynik) {
+        header("Location: index2.php?status=ok");
+        exit();
+    }
+    }
+    
+    
 // 6. ZAMKNIĘCIE POŁĄCZENIA
 
 mysqli_close($polaczenie);
