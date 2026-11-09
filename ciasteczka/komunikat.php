@@ -3,7 +3,7 @@ if (isset($_POST["akceptuj"])) {
     setcookie("komunikat", "zaakceptowano",
               time() + 86400 * 30, "/");
 
-    header("Location: index.php");
+    header("Location: komunikat.php");
     exit;
 }
 ?>
